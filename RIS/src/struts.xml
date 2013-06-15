@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">	
+<struts>
+	<include file="login.xml" />
+	
+	<package name="default" namespace="/tutorials" extends="struts-default">
+		<action name="getTutorial" class="com.cufe.risduo.action.TutorialAction" method="getTutorial">
+			<result name="success">/WEB-INF/views/success.jsp</result>
+			<result name="failure">/WEB-INF/views/error.jsp</result>
+		</action>
+		
+		<action name="addTutorial" class="com.cufe.risduo.action.TutorialAction" method="addTutorial">
+			<result name="success">/WEB-INF/views/success.jsp</result>
+			<result name="failure">/WEB-INF/views/error.jsp</result>
+		</action>
+	</package>
+	
+	<package name="search" namespace="/" extends="struts-default">
+	<!-- 	<action name="searchForm" >
+			<result>/searchForm.jsp</result>
+		</action>
+		<action name="search*" >
+			<result>/searchTutorial.jsp</result>
+		</action>
+		 below an action that does them both  -->
+		<action name="search*" >
+			<result>/search{1}.jsp</result> <!-- {1} is for the first wildcard parameter -->
+		</action>
+	</package>
+</struts>
