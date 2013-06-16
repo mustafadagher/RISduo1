@@ -29,4 +29,11 @@
 			<result>/search{1}.jsp</result> <!-- {1} is for the first wildcard parameter -->
 		</action>
 	</package>
+	
+	<package name="addPatient" namespace="/" extends="struts-default">
+	<action name="addPatient" class="com.cufe.risduo.action.AddPatientAction">
+			<result name="success">/addPatient.jsp</result>
+			<result name="input">/addPatient.jsp</result>
+		</action>
+	</package>
 </struts>
