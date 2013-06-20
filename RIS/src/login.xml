@@ -5,9 +5,9 @@
 <struts>
 	<package name="login" namespace="/" extends="struts-default">
 		<action name="login" class="com.cufe.risduo.action.LoginAction">
-			<result name="success">/addPatient.jsp</result>
-			<result name="login">/login.jsp</result>
-			<result name="input">/login.jsp</result>
+			<result name="success">/WEB-INF/views/searchPatient.jsp</result>
+			<result name="login">/WEB-INF/views/login.jsp</result>
+			<result name="input">/WEB-INF/views/login.jsp</result>
 		</action>
 	</package>
 	

@@ -10,7 +10,7 @@
 <title>Add Patient</title>
 </head>
 <body>
-	<s:form action="addPatient">
+	<s:form action="/patient/add">
 		<s:textfield label="First Name" key="patientFName"/>
 		<s:textfield label="Middle Name" key="patientMName"/>
 		<s:textfield label="Last Name" key="patientLName"/>
