@@ -14,7 +14,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>{
 	
 	public void validate (){
 		if (StringUtils.isEmpty(user.getUserName()))
-			addFieldError("userId", "User Name must be set.");
+			addFieldError("userName", "User Name must be set.");
 		if (StringUtils.isEmpty(user.getPassword()))
 			addFieldError("password", "Passowrd must be set.");
 			
@@ -25,7 +25,8 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>{
 		LoginService loginService= new LoginService();
 		if (loginService.verifyLogin(user))
 			return SUCCESS;
-		return LOGIN;
+		addFieldError("loginForm", "either username or passowrd is not valid.");
+		return INPUT;
 	}
 
 	public User getUser() {

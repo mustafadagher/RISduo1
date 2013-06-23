@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">	
+<struts>
+	<package name="Patient" namespace="/patient" extends="struts-default">
+		<action name="add" class="com.cufe.risduo.action.PatientAction" method="addPatient">
+			<result name="success">/WEB-INF/views/searchPatient.jsp</result>
+			<result name="input">/WEB-INF/views/addPatient.jsp</result>
+		</action>
+		<action name="search" class="com.cufe.risduo.action.PatientAction" method="searchPatient">
+			<result name="success">/WEB-INF/views/searchPatient.jsp</result>
+			<result name="input">/WEB-INF/views/searchPatient.jsp</result>
+		</action>
+	</package>
+	
+</struts>

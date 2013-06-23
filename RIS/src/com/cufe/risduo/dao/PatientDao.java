@@ -28,7 +28,7 @@ public interface PatientDao {
     * This is the method to be used to list down
     * all the records from the patient table.
     */
-   public List<Patient> listPatients(String patientFName);
+   public List<Patient> listPatients(String condition);
    /** 
     * This is the method to be used to delete
     * a record from the patient table corresponding
