@@ -7,10 +7,84 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <sj:head />
+
+<link rel='stylesheet' type='text/css' href='/RIS/static/css/fullcalendar' />
+<script type='text/javascript' src='/RIS/static/js/jqueryui'></script>
+<script type='text/javascript' src='/RIS/static/js/fullcalendar'></script>
 <title>Schedule</title>
 </head>
 <body>
-	<div>
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+			
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+            /* var json = $.getJSON( "/RIS/static/json/resources", function() {
+            	  console.log( "success" );
+            	}); */
+            var url = "/RIS/schedule/getResources";
+            var url2 = "/RIS/schedule/getEvents";	
+           var json = $.ajax({
+            	            url: url,
+            	            
+            	            async: false,
+            	            dataType: 'script'
+            	        }).responseText;
+            json = json.replace(/&quot;/gi, "\"");
+            console.log( json );
+            
+            var eventsJson = $.ajax({
+	            url: url2, 
+	            async: false,
+	            dataType: 'json'
+	        }).responseText;
+            eventsJson = eventsJson.replace(/&quot;/gi, "\"");
+			console.log( eventsJson );
+            
+            var calendar = $("#calendar").fullCalendar({
+                header: {
+                    left: "prev,next today",
+                    center: "title",
+                    right: "resourceDay"
+                },
+                titleFormat: "ddd, MMM dd, yyyy",
+                defaultView: "resourceDay",
+                selectable: true,
+                selectHelper: true,
+                select: function(start, end, allDay, event, resourceId) {
+                    var title = prompt("Event Title:");
+                    if (title) {
+                        console.log("@@ adding event " + title + ", start " + start + ", end " + end + ", allDay " + allDay + ", resource " + resourceId);
+                        calendar.fullCalendar("renderEvent",
+                        {
+                            title: title,
+                            start: start,
+                            end: end,
+                            allDay: allDay,
+                            resourceId: resourceId
+                        },
+                        true // make the event "stick"
+                    );
+                    }
+                    calendar.fullCalendar("unselect");
+                },
+                eventResize: function(event, dayDelta, minuteDelta) {
+                    console.log("@@ resize event " + event.title + ", start " + event.start + ", end " + event.end + ", resource " + event.resourceId);
+                },
+                eventDrop: function( event, dayDelta, minuteDelta, allDay) {
+                    console.log("@@ drag/drop event " + event.title + ", start " + event.start + ", end " + event.end + ", resource " + event.resourceId);
+                },
+                editable: true,
+                resources: eval(json) ,
+                events: eval(eventsJson)
+            });
+	
+        });
+	</script>
+	<div id='calendar'>
 	</div>
 </body>
 </html>

@@ -7,12 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <sj:head />
-<title>Search Patient</title>
+<title>Patients</title>
 </head>
 <body>
 	
 	<div id="main" >
-		<s:form action="/patient/search">
+		<div id="form">
+		<s:form id="searchForm" action="/patient/search">
 			<s:textfield label="First Name" key="patientFName"/>
 			<s:textfield label="Middle Name" key="patientMName"/>
 			<s:textfield label="Last Name" key="patientLName"/>
@@ -28,9 +29,10 @@
 			name="patientBDate" displayFormat="dd.mm.yy" showButtonPanel="true" changeMonth="true" changeYear="true" />
 			<s:textfield label="Address" key="patientAddress"/>
 			<s:textfield label="Telephone" key="patientTelephone"/>	
-			<sj:submit value="search" targets="result"/>
-			
+			<s:submit value="search" />
+			<s:submit value="add" action="add" />
 		</s:form>
+		
 	</div>
 	
 	<div id="result">
@@ -57,6 +59,13 @@
 		   </s:iterator>
    		</table>
 	</div>
-	
+	</div>
+	<div id="links">
+		<s:url var="addPatientRef" value="/static/views/addPatient"/>
+    	<s:a id="addPatientLink" href="%{addPatientRef}" >Add new Patient</s:a>
+    	
+    	<s:url var="scheduleRef" value="/static/views/schedule"/>
+    	<s:a id="scheduleLink" href="%{scheduleRef}" > schedule </s:a>
+	</div>
 </body>
 </html>

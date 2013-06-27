@@ -6,7 +6,7 @@
 	<package name="Patient" namespace="/patient" extends="struts-default">
 		<action name="add" class="com.cufe.risduo.action.PatientAction" method="addPatient">
 			<result name="success">/WEB-INF/views/searchPatient.jsp</result>
-			<result name="input">/WEB-INF/views/addPatient.jsp</result>
+			<result name="input">/WEB-INF/views/searchPatient.jsp</result>
 		</action>
 		<action name="search" class="com.cufe.risduo.action.PatientAction" method="searchPatient">
 			<result name="success">/WEB-INF/views/searchPatient.jsp</result>
