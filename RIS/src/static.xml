@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">	
+<struts>
+	
+     <package name="static-views" extends="struts-default" namespace="/static/views">
+        <action name="*">
+            <result>/WEB-INF/views/{1}.jsp</result>
+        </action>  
+        
+        <action name="resources">
+            <result>/WEB-INF/views/resources.json</result>
+        </action>
+        <action name="events">
+            <result>/WEB-INF/views/events.json</result>
+        </action>      
+     </package>
+        
+    <package name="static-css" extends="struts-default" namespace="/static/css">
+        <action name="*">
+            <result>/WEB-INF/css/{1}.css</result>
+        </action>    
+    </package>
+    
+    <package name="static-json" extends="struts-default" namespace="/static/json">
+        <action name="*">
+            <result>/WEB-INF/json/{1}.json</result>
+        </action>    
+     </package>
+   
+
+    <package name="static-js" extends="struts-default" namespace="/static/js">
+        <action name="*">
+            <result>/WEB-INF/js/{1}.js</result>
+        </action>    
+        </package>
+	
+	<package name="static" extends="struts-default" namespace="/static">
+        <action name="*">
+            <result>/WEB-INF/{1}</result>
+        </action>    
+        </package>
+	
+</struts>

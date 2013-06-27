@@ -7,7 +7,6 @@ import org.apache.commons.lang.StringUtils;
 
 import com.cufe.risduo.model.Patient;
 import com.cufe.risduo.service.PatientService;
-import com.cufe.risduo.service.LoginService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;

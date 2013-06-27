@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">	
+<struts>
+	<package name="schedule" namespace="/schedule" extends="struts-default">
+		<action name="getResources" class="com.cufe.risduo.action.ScheduleAction" method="getScheduleResources">
+			<result name="success">/WEB-INF/views/resoursesJson.jsp</result>
+			<result name="input">/WEB-INF/views/resoursesJson.jsp</result>
+		</action>
+		<action name="getEvents" class="com.cufe.risduo.action.ScheduleAction" method="getScheduleEvents">
+			<result name="success">/WEB-INF/views/eventsJson.jsp</result>
+			<result name="input">/WEB-INF/views/eventsJson.jsp</result>
+		</action>
+		<action name="view" class="com.cufe.risduo.action.ScheduleAction" method="view">
+			<result name="success">/WEB-INF/views/schedule.jsp</result>
+			<result name="input">/WEB-INF/views/schedule.jsp</result>
+		</action>
+	</package>
+	
+</struts>
