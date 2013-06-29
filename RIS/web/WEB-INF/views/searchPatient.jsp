@@ -8,32 +8,47 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <sj:head />
 <title>Patients</title>
+<link rel= "stylesheet" href="/RIS/static/css/addpatient-style" >
 </head>
 <body>
-	
-	<div id="main" >
-		<div id="form">
+<div class ="container">
+<%@ include file="topBar.jsp" %>
+<%@ include file="menu.jsp" %>
+
+
+
+
+<div id="form">
 		<s:form id="searchForm" action="/patient/search">
-			<s:textfield label="First Name" key="patientFName"/>
-			<s:textfield label="Middle Name" key="patientMName"/>
-			<s:textfield label="Last Name" key="patientLName"/>
-			<s:select label="Sex"
-			       name="patientSex"
-			       headerKey="null" headerValue="Select Sex"
-			       list="#{'Male':'Male', 'Female':'Female'}"
-			       value="patientSex"
-			       key="patientSex"
-			       required="true"
-			/>
-			<sj:datepicker label="Birth Date"  id="patientBDate" key="patientBDate" 
-			name="patientBDate" displayFormat="dd.mm.yy" showButtonPanel="true" changeMonth="true" changeYear="true" />
-			<s:textfield label="Address" key="patientAddress"/>
-			<s:textfield label="Telephone" key="patientTelephone"/>	
-			<s:submit value="search" />
-			<s:submit value="add" action="add" />
+		
+			
+					<s:textfield id="patientFName" name="patientFName" label="Patient Name" value="First" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
+					<s:textfield id="patientMName" name="patientMName" value="Middle" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
+					<s:textfield id="patientLName" name="patientLName" value="Last" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
+				
+				<sj:datepicker label="Birth Date"  id="patientBDate" key="patientBDate" value="Birth Date" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"
+				name="patientBDate" displayFormat="dd/mm/yy" showButtonPanel="true" changeMonth="true" changeYear="true" />
+				<s:select 
+				       name="patientSex"
+				       id="sex"
+				       headerKey="null" headerValue="Select Sex"
+				       list="#{'Male':'Male', 'Female':'Female'}"
+				       value="patientSex"
+				       required="true"
+				/>
+				
+				
+				<s:textfield label="Address" id="patientAddress" name="patientAddress" value="Patient Address" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
+				<s:textfield label="Telephone" id="patientTelephone" name="patientTelephone" value="Patient Telephone" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
+			
+			
+			<s:submit value="Search" id="searchbutton"/>
+			<s:submit value="Add" action="add" id="addbutton"/>
+			
+			
 		</s:form>
 		
-	</div>
+</div> <!-- end form -->
 	
 	<div id="result">
 		<table>
@@ -59,13 +74,8 @@
 		   </s:iterator>
    		</table>
 	</div>
-	</div>
-	<div id="links">
-		<s:url var="addPatientRef" value="/static/views/addPatient"/>
-    	<s:a id="addPatientLink" href="%{addPatientRef}" >Add new Patient</s:a>
-    	
-    	<s:url var="scheduleRef" value="/static/views/schedule"/>
-    	<s:a id="scheduleLink" href="%{scheduleRef}" > schedule </s:a>
-	</div>
+	</div> <!-- end container -->
+	<%@ include file="footer.jsp" %>
+
 </body>
 </html>

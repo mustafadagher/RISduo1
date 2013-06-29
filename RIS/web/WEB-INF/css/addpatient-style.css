@@ -1,0 +1,286 @@
+html, body, div, span, object,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, address, code, img, small, strong,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	text-align:left;
+	line-height: 1.5;
+	font-family:helvetica, arial, sans-serif;
+	background:#080808;
+}
+ol, ul {
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color:#8bc6f0;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+.container{
+	width:1100px;
+	min-height:730px;
+	background:url(/RIS/static/image/container-bg);
+	margin:auto; /* to make the container centered */	
+}
+#top-bar{
+	height:35px;
+	background:#000000 repeat-x;
+}
+#top-bar h1{
+	color:#ffffff;
+	text-align:left;
+	margin-left:20px;
+	font-size:15px;
+	float:left;
+	margin-top:5px;
+
+}
+#top-bar h2{
+	width:74px;
+	height:29px;
+	background:url(/RIS/static/image/logout);
+	text-indent:-9999px;
+	display:block;
+	float:right;
+	margin-right:10px;	
+}
+#nav-bar ul{
+	width:1100px;
+	height:120px;	
+}
+#nav-bar ul li{
+	float:left;
+	margin-left:90px;
+	margin-top:15px;
+}
+
+#nav-bar ul li a{
+	text-decoration: none; /* remove the underline */
+	color:#ffffff;
+	font-size:13px;
+	font-weight:regular;
+	font-family:Courier New;	
+}
+#patients{
+	margin-top:-5px;
+	width: 81px;
+	height: 74px;
+	background: url("/RIS/static/image/patients") no-repeat scroll 50% 50% transparent;
+}
+#schedule{
+	margin-top:-5px;
+	width: 81px;
+	height: 74px;
+	background: url("/RIS/static/image/schedule") no-repeat scroll 50% 50% transparent;
+}
+#procedures{
+	margin-top:-5px;
+	width: 81px;
+	height: 74px;
+	background: url("/RIS/static/image/procedures") no-repeat scroll 50% 50% transparent;
+}
+#reports{
+	margin-top:-5px;
+	width: 81px;
+	height: 74px;
+	background: url("/RIS/static/image/reports") no-repeat scroll 50% 50% transparent;
+}
+#statistics{
+	margin-top:-5px;
+	width: 81px;
+	height: 74px;
+	background: url("/RIS/static/image/statistics") no-repeat scroll 50% 50% transparent;
+}
+#settings{
+	margin-top:-5px;
+	width: 81px;
+	height: 74px;
+	background: url("/RIS/static/image/settings") no-repeat scroll 50% 50% transparent;
+}
+.menuText{
+	text-align:center;
+	height:10px;
+	width:81px;
+	padding-top: 50px;
+}
+#nav-bar ul li a:visited{
+	background:url(/RIS/static/image/marker) no-repeat;
+	float:left;
+	width: 81px;
+	height: 74px;
+}
+#nav-bar ul li a:active{
+	background:url(/RIS/static/image/marker) no-repeat;
+	float:left;
+	width: 81px;
+	height: 74px;
+}
+
+
+#form{
+	width:1100px;
+	height:300px;
+	background:url(/RIS/static/image/form-bg);
+	padding:30px 0;
+}
+#searchForm{
+	width:1050px;
+	height:290px;
+	background:#ffffff;
+	margin:auto;		
+}
+label{
+	margin-top:10px;
+	margin-left:10px;
+	color:#999999;	
+}
+#patientFName{
+	margin-top:6px;
+	float:left;
+	width:200px;
+	height:30px;
+	background:#e9e9e9;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 1px solid #b7b7b7;
+	padding:0 0 0 10px;
+	
+}
+#patientMName{
+	float:left;
+	margin-left:230px;
+	margin-top:-36px;
+	width:200px;
+	height:30px;
+	background:#e9e9e9;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 1px solid #b7b7b7;
+	padding:0 0 0 10px;
+}
+#patientLName{
+	float:left;
+	margin-left:460px;
+	margin-top:-40px;
+	width:200px;
+	height:30px;
+	background:#e9e9e9;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 1px solid #b7b7b7;
+	padding:0 0 0 10px;
+}
+#sex{
+	padding:1.5px 0;
+	background:#e9e9e9;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 1px solid #b7b7b7;
+	float:left;
+	margin-left: 230px;
+	margin-top: -29px;
+}
+#sexlabel{
+	margin-top:200px;
+}
+#patientBDate{
+	height:30px;
+	float:left;
+	/*margin-left:5px; */
+	padding:0 0 0 10px;
+	background:#e9e9e9;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 1px solid #b7b7b7;
+	height:22px;
+}
+#patientAddress{
+	width:500px;
+	height:30px;
+	background:#e9e9e9;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 1px solid #b7b7b7;
+	padding:0 0 0 10px;
+	margin-top:10px;
+}
+.ui-datepicker-trigger{
+	padding:2px 2px;
+	height:25px;
+	background:#e9e9e9;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 1px solid #b7b7b7;
+}
+#patientTelephone{
+	width:180px;
+	height:30px;
+	background:#e9e9e9;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 1px solid #b7b7b7;
+	padding:0 0 0 10px;
+}
+
+#footer{
+	height:30px;
+	background:#000000 repeat-x;
+	
+	
+}
+#footer p{
+	color:#999999;
+	text-align:center;	
+	
+}
+#searchbutton{
+	margin-left:20px;
+	
+	width:120px;
+	height:30px;
+	background-image:url(/RIS/static/image/button1);
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	color:#ffffff;
+	font-size:12pt;
+	font-family:Myriad Pro;
+	
+}
+#addbutton{
+	width:120px;
+	height:30px;
+	background-image:url(/RIS/static/image/button1);
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	color:#ffffff;
+	font-size:12pt;
+	font-family:Myriad Pro;
+}
+#calendar-space{
+	width:1050px;
+	min-height:800px;
+	background:#ffffff;
+	margin:auto;	
+}

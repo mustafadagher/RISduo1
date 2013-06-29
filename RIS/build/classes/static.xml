@@ -23,6 +23,13 @@
         </action>    
     </package>
     
+    <package name="static-image" extends="struts-default" namespace="/static/image">
+        <action name="*">
+            <result>/WEB-INF/image/{1}.png</result>
+        </action>    
+    </package>
+    
+    
     <package name="static-json" extends="struts-default" namespace="/static/json">
         <action name="*">
             <result>/WEB-INF/json/{1}.json</result>

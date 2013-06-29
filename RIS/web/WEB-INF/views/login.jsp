@@ -6,13 +6,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
+<link rel= "stylesheet" href="/RIS/static/css/login-style" >
 </head>
 <body>
-	<s:form name="loginForm" action="login">
-		<s:textfield label="User Name" key="userName"/>
-		<s:password label="Password" key="password"/>
-		<s:submit value="login"/>
+<div id ="container">
+
+<div id="header">
+		<h1>RIS duo</h1>
+		<h2>RIS</h2>
+</div><!-- end header -->
+
+	<div id ="login-form">
+		<s:form action="login" name="loginForm">
+			<s:textfield style="color:#696969" id="username" name="userName" value="User Name" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
+			<s:password style="color:#696969" id="password" name="password" value="Password" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
+			<s:submit id="button" value="login" type="image" src="/RIS/static/image/button"/>
+		</s:form>
+	</div> 
 	
-	</s:form>
+</div> <!-- end container -->
+
+<div id="footer"><p>Copyrights(c)2012-2013 RISduo team</p>
+</div> <!-- end footer -->
 </body>
 </html>

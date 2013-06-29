@@ -12,6 +12,7 @@
 <script type='text/javascript' src='/RIS/static/js/jqueryui'></script>
 <script type='text/javascript' src='/RIS/static/js/fullcalendar'></script>
 <title>Schedule</title>
+<link rel= "stylesheet" href="/RIS/static/css/addpatient-style" >
 </head>
 <body>
 	<script type="text/javascript">
@@ -84,7 +85,16 @@
 	
         });
 	</script>
+	<div class ="container">
+<%@ include file="topBar.jsp" %>
+<%@ include file="menu.jsp" %>
+<div id=calendar-space>
+	
 	<div id='calendar'>
 	</div>
+	
+	</div>
+	</div> <!-- end container -->
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

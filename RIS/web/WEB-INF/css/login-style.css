@@ -1,0 +1,85 @@
+html, body, div, span, object,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, address, code, img, small, strong,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	text-align:center;
+	line-height: 1.5;
+	font-family:helvetica, arial, sans-serif;
+	background:#080808;
+}
+ol, ul {
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color:#8bc6f0;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+#container{
+	width:1100px;
+	min-height:730px;
+	background:url(/RIS/static/image/container-bg);
+	margin:auto; /* to make the container centered */	
+}
+#header h1{
+	height:30px;
+	background:#000000 repeat-x;
+	color:#ffffff;
+	text-align:left;
+	font-size:15px;
+
+}
+#header h2{
+	width:192px;
+	height:121px;
+	background: url(/RIS/static/image/logo) no-repeat;
+	text-indent:-9999px; /* to hide the text */
+	margin-left:454px;
+	margin-top:50px;	
+}
+#login-form{
+	width:300px;
+	height:280px;
+	background:url(/RIS/static/image/form1);
+	margin-left:400px;
+	margin-top:40px;
+}
+#username{
+	background:transparent;
+	border:0px;
+	margin-top:85px;
+	margin-left:18px;
+
+}
+#password{
+	background:transparent;
+	border:0px;
+	margin-left:18px;
+	margin-top:18px;
+}
+#button{
+	margin-left:30px;
+	margin-top:50px;
+}
+#footer{
+	height:30px;
+	background:#000000 repeat-x;	
+}
+#footer p{
+	color:#999999;
+	text-align:center;	
+	
+}
