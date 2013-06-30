@@ -1,4 +1,3 @@
-
 <div id="nav-bar">
 		<ul>
 			<li><a href="/RIS/patient/form"><div id="patients"><div class="menuText">Patients</div></div></a></li>

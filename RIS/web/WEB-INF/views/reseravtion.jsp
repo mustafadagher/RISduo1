@@ -6,9 +6,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<sj:head />
+<sj:head jqueryui="true" />
 <title>Reservation</title>
 <link rel= "stylesheet" href="/RIS/static/css/addpatient-style" >
+<script>
+function update(){
+	  var url="/RIS/reservation/update";
+	  var res = $.ajax({
+          url: resUrl,
+          async: false,
+          dataType: 'script'
+      }).responseText;
+  	res= eval(res);
+  	if(res=="true"){
+  		alert("Reservation Updated Successfully!");
+  	}
+	}
+</script>
 </head>
 <body>
 <div class ="container">
@@ -16,7 +30,7 @@
 <%@ include file="menu.jsp" %>
 
 	<div class="pageblock">
-		<s:form id="reservationForm" action="/reservation/update">			
+		<s:form id="reservationForm" action="/reservation/cancel">			
 			<s:textfield id="patientFName" name="patientFName" label="Patient Name" />
 			<s:textfield id="patientMName" name="patientMName" />
 			<s:textfield id="patientLName" name="patientLName" />
@@ -50,14 +64,15 @@
 				       required="true"
 				/>
 				<s:textfield id="reservationBillingData" cssClass="normalTextBox" name="reservationBillingData" label="Billing Data" />
-				<s:submit value="Job Order" action="order" id="addbutton"/>
-				<s:submit value="Save" action="update" id="addbutton"/>
-				<s:submit value="Cancel" action="cancel" id="addbutton"/>
+				<s:submit value="Job Order" action="order" id="addbutton"/> 
+				<%-- <sj:submit value="Save" action="update" cssClass="normalButton" id="savebutton" targets="formResult" openDialog="resultDialog"/> --%>
+				 <sj:submit value="Cancel" action="cancel" cssClass="normalButton" id="cancelbutton" targets="cancelResult" openDialog="cancelDialog"/>
+				
 			</s:form>
 		
 		</div> <!-- end form -->
-	
-	
+	<sj:dialog id="resultDialog" autoOpen="false" ><div id="formResult"></div></sj:dialog>
+	<sj:dialog id="cancelDialog" autoOpen="false" ><div id="cancelResult"></div></sj:dialog>
 	</div> <!-- end container -->
 	<%@ include file="footer.jsp" %>
 

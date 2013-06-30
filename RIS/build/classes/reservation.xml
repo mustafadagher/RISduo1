@@ -18,5 +18,15 @@
 			<result name="input">/WEB-INF/views/jobOrder.jsp</result>
 			<result name="error">/WEB-INF/views/reseravtion.jsp</result>
 		</action>
+		<action name="cancel" class="com.cufe.risduo.action.ReservationAction" method="cancelReservation">
+			<result name="success">/WEB-INF/views/cancelSuccess.jsp</result>
+			<result name="input">/WEB-INF/views/cancelSuccess.jsp</result>
+			<result name="error">/WEB-INF/views/cancelError.jsp</result>
+		</action>
+		<action name="update" class="com.cufe.risduo.action.ReservationAction" method="updateReservation">
+			<result name="success">/WEB-INF/views/updateSuccess.jsp</result>
+			<result name="input">/WEB-INF/views/updateSuccess.jsp</result>
+			<result name="error">/WEB-INF/views/updateError.jsp</result>
+		</action>
 	</package>
 </struts>

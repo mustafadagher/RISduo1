@@ -122,7 +122,80 @@ public class ReservationAction extends ActionSupport implements ModelDriven<Rese
 		return ERROR;
 		
 	}
-
+	
+	public String cancelReservation(){
+		
+		Integer r_Id=null;
+		// Load from cookie
+		 for(Cookie c : servletRequest.getCookies()) {
+		   if (c.getName().equals("r_Id")){
+			   r_Id= Integer.parseInt(c.getValue());
+			   //clearing cookies after assigning them to variables
+			   c.setMaxAge(0);
+			   c.setValue("");
+			   servletResponse.addCookie(c);
+		   }
+		 }
+		 
+		getReservation().setR_Id(r_Id);
+		  
+		  //job order changes the reservation patient status to flag canceling
+		getReservation().setReservationPatientStatus(-1);
+		
+		System.out.println("Canceled Reservation ID: "+r_Id+"\nstatus:"+getReservation().getReservationPatientStatus());
+		
+		ReservationService reservationService= new ReservationService();
+		
+		if (reservationService.updateReservation(getReservation()))
+			return SUCCESS;
+		
+		return ERROR;
+		
+	}
+	
+	public String updateReservation(){
+		Integer patientId= null;
+		Integer r_Id=null;
+		// Load from cookie
+		 for(Cookie c : servletRequest.getCookies()) {
+		   if (c.getName().equals("patientID")){
+			   	patientId  =Integer.parseInt(c.getValue());
+			   	c.setMaxAge(0);
+			   	c.setValue("");
+			   	servletResponse.addCookie(c);
+			   }
+		   if (c.getName().equals("r_Id")){
+			   r_Id= Integer.parseInt(c.getValue());
+			   //clearing cookies after assigning them to variables
+			   c.setMaxAge(0);
+			   c.setValue("");
+			   servletResponse.addCookie(c);
+		   }
+		 }
+		  
+		  this.patient.setPatientId(patientId);
+		  this.patient.setPatientFName(patientFName);
+		  this.patient.setPatientMName(patientMName);
+		  this.patient.setPatientLName(patientLName);
+		  this.patient.setPatientNID(patientNID);
+		  
+		  this.reservation.setR_Id(r_Id);
+		  
+		  //job order changes the reservation patient status to flag attending
+		
+		System.out.println("Patient ID: "+patientId);
+		System.out.println("Reservation ID: "+r_Id);
+		
+		ReservationService reservationService= new ReservationService();
+		PatientService patientService = new PatientService();
+		
+		if (reservationService.updateReservation(getReservation()) && patientService.updatePatient(getPatient()))
+			return SUCCESS;
+		
+		return ERROR;
+		
+	}
+	
 	public Reservation getReservation() {
 		return reservation;
 	}

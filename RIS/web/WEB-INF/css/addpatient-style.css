@@ -346,3 +346,6 @@ margin: auto;
 	background: url(/RIS/static/image/form-bg);
 	width: 100%;
 }
+#nav-bar{
+	height: 95px;
+}

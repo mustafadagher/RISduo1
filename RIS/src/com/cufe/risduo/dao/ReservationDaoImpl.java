@@ -67,6 +67,28 @@ public class ReservationDaoImpl implements ReservationDao{
 	}
 
 	public int update(Reservation reservation) {
+		
+		if(reservation.getReservationPatientStatus()==null){
+			String sql = "UPDATE reservation set reservationExamTime=?, " +
+					"reservationReferringPhysician = ?," +
+					"reservationRoomId= ?, " +
+					"reservationBillingType= ?,reservationBillingData= ?" +
+					"where r_Id = ?";
+			 
+			int numRows =  jdbcTemplate.update(sql, new Object[] {reservation.getReservationExamTime(),
+					reservation.getReservationReferringPhysician(),
+					reservation.getReservationRoomId(), 
+					reservation.getReservationBillingType(), reservation.getReservationBillingData(),
+					reservation.getR_Id()});
+			 return numRows;
+		}
+		else if (reservation.getReservationPatientStatus()==-1){
+			String sql = "UPDATE reservation set reservationPatientStatus= ? where r_Id = ?";
+			 
+			int numRows =  jdbcTemplate.update(sql, new Object[] {reservation.getReservationPatientStatus(),reservation.getR_Id()});
+			 return numRows;
+		}
+		else{
 		String sql = "UPDATE reservation set reservationExamTime=?, " +
 				"reservationAttendanceTime= ?, reservationReferringPhysician = ?," +
 				"reservationPatientStatus= ?, reservationRoomId= ?, " +
@@ -80,7 +102,7 @@ public class ReservationDaoImpl implements ReservationDao{
 				reservation.getReservationBillingType(), reservation.getReservationBillingData(),
 				reservation.getR_Id()});
 		 return numRows;
-		
+		}
 	}
 
 	
