@@ -7,14 +7,8 @@
 	<include file="login.xml" />
 	<include file="patient.xml" />
 	<include file="schedule.xml" />
+	<include file="reservation.xml" />
 	
-	<package name="reservation" namespace="/reservation" extends="struts-default">
-		<action name="add" class="com.cufe.risduo.action.ReservationAction" method="addReservation">
-			<result name="success">/WEB-INF/views/true.jsp</result>
-			<result name="input">/WEB-INF/views/true.jsp</result>
-			<result name="error">/WEB-INF/views/false.jsp</result>
-		</action>
-	</package>
 	
 	<package name="default" namespace="/tutorials" extends="struts-default">
 		<action name="getTutorial" class="com.cufe.risduo.action.TutorialAction" method="getTutorial">

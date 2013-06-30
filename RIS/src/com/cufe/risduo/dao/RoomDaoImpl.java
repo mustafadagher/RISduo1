@@ -1,16 +1,10 @@
 package com.cufe.risduo.dao;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import com.cufe.risduo.model.Resource;
 import com.cufe.risduo.model.Room;

@@ -158,7 +158,7 @@ label{
 	margin-left:10px;
 	color:#999999;	
 }
-#patientFName{
+.normalTextBox, #patientFName{
 	margin-top:6px;
 	float:left;
 	width:200px;
@@ -279,7 +279,7 @@ label{
 	font-family:Myriad Pro;
 	
 }
-#addbutton{
+.normalButton , #addbutton{
 	width:120px;
 	height:30px;
 	background-image:url(/RIS/static/image/button1);
@@ -295,4 +295,54 @@ label{
 	min-height:800px;
 	background:#ffffff;
 	margin:auto;	
+}
+
+/*added by mustafa dagher*/
+
+.container {
+width: 100%;
+background: url(/RIS/static/image/container-bg);
+
+margin: auto;
+min-height: auto;
+}
+
+.pageblock {
+
+padding: 30px 0;
+margin-right: auto;
+margin-left: auto;
+width: 100%;
+}
+
+#nav-bar ul {
+width: 90%;
+height: 95px;
+margin: auto;
+}
+
+#nav-bar ul li {
+float: left;
+margin-left: 7%;
+margin-top: 1%;
+}
+
+.blockContent, #searchForm ,#reservationForm {
+width: 85%;
+height: auto;
+background: #ffffff;
+margin: auto;
+}
+
+.normalTextBox, #patientFName , #patientMName , #patientLName , #patientTelephone {
+	width: 30%;
+}
+
+#patientAddress
+{
+	width: 72%;
+}
+.maincontent{
+	background: url(/RIS/static/image/form-bg);
+	width: 100%;
 }

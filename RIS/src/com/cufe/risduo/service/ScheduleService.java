@@ -10,7 +10,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.cufe.risduo.dao.ReservationDaoImpl;
 import com.cufe.risduo.dao.RoomDaoImpl;
 import com.cufe.risduo.model.Event;
-import com.cufe.risduo.model.Reservation;
 import com.cufe.risduo.model.Resource;
 import com.google.gson.Gson;
 
@@ -60,7 +59,7 @@ public String getEventsJson(){
 		eventsJson = gson.toJson(events).replace("\"title\"","title").replace("\"start\"", "start")
 				.replace("\"end\"", "end").replace("\"allDay\"", "allDay")
 				.replace("\"resourceId\"", "resourceId").replace("\"color\"", "color")
-				.replace("\"textColor\"", "textColor").replace("\"false\"", "false");
+				.replace("\"textColor\"", "textColor").replace("\"false\"", "false").replace("\"url\"", "url");
 		
 		
 		try {

@@ -5,10 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Tutorials</title>
+<title></title>
 </head>
 <body>
-Business service executed!
-<s:property value="bestTutorial"/> 
+ 
 </body>
 </html>

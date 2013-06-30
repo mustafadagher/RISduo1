@@ -15,10 +15,7 @@
 <div class ="container">
 <%@ include file="topBar.jsp" %>
 <%@ include file="menu.jsp" %>
-
-
-
-
+	<div class= "maincontent">
 			<div class="pageblock">
 				<s:form id="searchForm" action="/patient/search">			
 					<s:textfield id="patientFName" name="patientFName" label="Patient Name" />
@@ -77,6 +74,7 @@
 		      </tr>
 		   </s:iterator>
    		</table>
+	</div>
 	</div>
 	</div>
 	</div> <!-- end container -->

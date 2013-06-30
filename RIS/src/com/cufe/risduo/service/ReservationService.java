@@ -27,5 +27,33 @@ public class ReservationService {
 		return false;
 	}
 	
+	public Reservation editReservation(Integer reservationExamTime,
+			Integer reservationRoomId, String patientFName, 
+			String patientLName){
+		//getLoggedinUser()
+				//getUserRole
+				//if role recep.
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ReservationDaoImpl dao = ctx.getBean("reservationDaoImpl", ReservationDaoImpl.class);
+		
+		Reservation reservation = dao.getEventReservation(reservationExamTime, reservationRoomId, patientFName, patientLName);
+		
+		return reservation;
+	}
+	
+	public boolean updateReservation(Reservation reservation){
+		//getLoggedinUser()
+				//getUserRole
+				//if role recep.
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ReservationDaoImpl dao = ctx.getBean("reservationDaoImpl", ReservationDaoImpl.class);
+		
+		int numRows = dao.update(reservation);
+		
+		if (numRows>0){
+			return true;
+		}
+		return false;
+	}
 	
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">	
+<struts>
+	<package name="reservation" namespace="/reservation" extends="struts-default">
+		<action name="add" class="com.cufe.risduo.action.ReservationAction" method="addReservation">
+			<result name="success">/WEB-INF/views/true.jsp</result>
+			<result name="input">/WEB-INF/views/true.jsp</result>
+			<result name="error">/WEB-INF/views/false.jsp</result>
+		</action>
+		<action name="edit" class="com.cufe.risduo.action.ReservationAction" method="editReservation">
+			<result name="success">/WEB-INF/views/reseravtion.jsp</result>
+			<result name="input">/WEB-INF/views/reseravtion.jsp</result>
+		</action>
+		<action name="order" class="com.cufe.risduo.action.ReservationAction" method="jobOrder">
+			<result name="success">/WEB-INF/views/jobOrder.jsp</result>
+			<result name="input">/WEB-INF/views/jobOrder.jsp</result>
+			<result name="error">/WEB-INF/views/reseravtion.jsp</result>
+		</action>
+	</package>
+</struts>

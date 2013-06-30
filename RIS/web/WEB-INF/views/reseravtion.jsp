@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <sj:head />
-<title>Patients</title>
+<title>Reservation</title>
 <link rel= "stylesheet" href="/RIS/static/css/addpatient-style" >
 </head>
 <body>
@@ -16,26 +16,43 @@
 <%@ include file="menu.jsp" %>
 
 	<div class="pageblock">
-		<s:form id="reservationForm" action="/patient/search">			
+		<s:form id="reservationForm" action="/reservation/update">			
 			<s:textfield id="patientFName" name="patientFName" label="Patient Name" />
 			<s:textfield id="patientMName" name="patientMName" />
 			<s:textfield id="patientLName" name="patientLName" />
-				
-			<sj:datepicker label="Exam time"  id="reservationExamTime" key="reservationExamTime" 
+			<s:textfield id="patientNID" name="patientNID" cssClass="normalTextBox" label="National ID " />	
+			<sj:datepicker label="Exam time"  cssClass="normalTextBox" id="reservationExamTime" key="reservationExamTime" 
 				name="reservationExamTime" displayFormat="dd/mm/yy" changeMonth="true" 
 				changeYear="true" yearRange="-1:+1" timepicker="true" timepickerAmPm="true"
 				timepickerFormat="hh:mm" />
-				<s:select 
+			
+			<s:select 
 					label = "Room"
+					cssClass="normalTextBox"
 				       name="reservationRoomId"
 				       id="reservationRoomId"
 				       headerKey="null" headerValue="Select Room"
-				       list="#{'Male':'Male', 'Female':'Female'}"
+				       list="#{'1':'Room1', '2':'Room 2', '3':'Room 3'}"
 				       value="reservationRoomId"
 				       required="true"
 				/>
 				
-				<s:submit value="Add" action="add" id="addbutton"/>
+				<s:textfield id="reservationReferringPhysician" cssClass="normalTextBox" name="reservationReferringPhysician" label="Referring Physician" />
+				
+				<s:select 
+					label = "Billing Type"
+					cssClass="normalTextBox"
+				       name="reservationBillingType"
+				       id="reservationBillingType"
+				       headerKey="null" headerValue="Select Billing Type"
+				       list="#{'cash':'Cash', 'creditCard':'Credit Card', 'insurance':'Insurance'}"
+				       value="reservationBillingType"
+				       required="true"
+				/>
+				<s:textfield id="reservationBillingData" cssClass="normalTextBox" name="reservationBillingData" label="Billing Data" />
+				<s:submit value="Job Order" action="order" id="addbutton"/>
+				<s:submit value="Save" action="update" id="addbutton"/>
+				<s:submit value="Cancel" action="cancel" id="addbutton"/>
 			</s:form>
 		
 		</div> <!-- end form -->

@@ -24,6 +24,11 @@ public interface PatientDao {
     * to a passed patient id.
     */
    public Patient getPatient(String patientFName);
+   
+   public Patient getEventPatient(Integer reservationExamTime,
+			Integer reservationRoomId, String patientFName, 
+			String patientLName);
+   
    /** 
     * This is the method to be used to list down
     * all the records from the patient table.
@@ -40,8 +45,6 @@ public interface PatientDao {
     * a record into the patient table.
     */
    
-   void update(String patientFName, String patientMName,
-			String patientLName, String patientSex, String patientBDate,
-			String patientAddress, int patientTelephone);
+   public int update(Patient patient);
 }
 

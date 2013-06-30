@@ -9,7 +9,7 @@
 <link rel= "stylesheet" href="/RIS/static/css/login-style" >
 </head>
 <body>
-<div id ="container">
+<div class="container">
 
 <div id="header">
 		<h1>RIS duo</h1>

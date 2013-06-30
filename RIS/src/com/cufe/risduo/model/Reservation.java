@@ -10,6 +10,9 @@ public class Reservation {
 	private Integer reservationAttendanceTime;
 	private Integer reservationPatientId;
 	private Integer reservationRoomId;
+	private Integer reservationPatientStatus;
+	private String reservationBillingType;
+	private String reservationBillingData;
 	
 	public Integer getR_Id() {
 		return r_Id;
@@ -47,6 +50,24 @@ public class Reservation {
 	}
 	public void setReservationRoomId(Integer reservationRoomId) {
 		this.reservationRoomId = reservationRoomId;
+	}
+	public Integer getReservationPatientStatus() {
+		return reservationPatientStatus;
+	}
+	public void setReservationPatientStatus(Integer reservationPatientStatus) {
+		this.reservationPatientStatus = reservationPatientStatus;
+	}
+	public String getReservationBillingType() {
+		return reservationBillingType;
+	}
+	public void setReservationBillingType(String reservationBillingType) {
+		this.reservationBillingType = reservationBillingType;
+	}
+	public String getReservationBillingData() {
+		return reservationBillingData;
+	}
+	public void setReservationBillingData(String reservationBillingData) {
+		this.reservationBillingData = reservationBillingData;
 	}
 	
 	

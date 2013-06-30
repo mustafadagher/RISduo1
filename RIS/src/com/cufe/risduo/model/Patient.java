@@ -6,6 +6,7 @@ public class Patient {
 	private String patientFName;
 	private String patientMName;
 	private String patientLName;
+	private Long patientNID;
 	private String patientSex;
 	private String patientBDate;
 	private String patientAddress;
@@ -49,6 +50,14 @@ public class Patient {
 	public void setPatientFName(String patientFName) {
 		this.patientFName = patientFName;
 	}
+	public Long getPatientNID() {
+		return patientNID;
+	}
+
+	public void setPatientNID(Long patientNID) {
+		this.patientNID = patientNID;
+	}
+
 	public String getPatientSex() {
 		return patientSex;
 	}

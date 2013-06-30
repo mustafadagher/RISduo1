@@ -61,15 +61,15 @@
                     var title = $.cookie('patientFName')+" " +$.cookie('patientLName');
                    
                     if (title) {
-                    	var refPhys= prompt("Enter Referring Physician name","");
+                    	
                     	var confirmation = confirm("Adding a reservation for\nPatient: "+title+"\nExamTime: "+start+"\nin Room#: "+resourceId +"\n\nAre You Sure?!");
                     	if (confirmation){
                     	var reservation= new Object();
                     	reservation.reservationExamTime= Date.parse(start)/1000;
                     	reservation.reservationRoomId= resourceId;
                     	reservation.reservationPatientId=parseInt($.cookie('patientId'));
-                    	reservation.reservationReferringPhysician=refPhys;
-                    	var resUrl = "/RIS/reservation/add?reservationExamTime="+reservation.reservationExamTime+"&reservationRoomId="+reservation.reservationRoomId+"&reservationPatientId="+reservation.reservationPatientId+"&reservationReferringPhysician="+reservation.reservationReferringPhysician;
+                    	
+                    	var resUrl = "/RIS/reservation/add?reservationExamTime="+reservation.reservationExamTime+"&reservationRoomId="+reservation.reservationRoomId+"&reservationPatientId="+reservation.reservationPatientId;
                     	var res = $.ajax({
             	            url: resUrl,
             	            
@@ -95,12 +95,6 @@
                     }
                     	}
                     calendar.fullCalendar("unselect");
-                },
-                eventResize: function(event, dayDelta, minuteDelta) {
-                    console.log("@@ resize event " + event.title + ", start " + event.start + ", end " + event.end + ", resource " + event.resourceId);
-                },
-                eventDrop: function( event, dayDelta, minuteDelta, allDay) {
-                    console.log("@@ drag/drop event " + event.title + ", start " + event.start + ", end " + event.end + ", resource " + event.resourceId);
                 },
                 editable: true,
                 resources: eval(json) ,

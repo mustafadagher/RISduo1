@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.cufe.risduo.model.Reservation;
-import com.cufe.risduo.model.Room;
+
 
 public class ReservationMapper implements RowMapper<Reservation>{
 
@@ -20,6 +20,7 @@ public class ReservationMapper implements RowMapper<Reservation>{
 	      reservation.setReservationAttendanceTime(rs.getInt("reservationAttendanceTime"));
 	      reservation.setReservationPatientId(rs.getInt("reservationPatientId"));
 	      reservation.setReservationRoomId(rs.getInt("reservationRoomId"));
+	      reservation.setReservationPatientStatus(rs.getInt("reservationPatientStatus"));
 		return reservation;
 	}
 
