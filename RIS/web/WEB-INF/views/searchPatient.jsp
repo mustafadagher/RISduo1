@@ -8,36 +8,52 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <sj:head />
 <title>Patients</title>
+<link rel= "stylesheet" href="/RIS/static/css/addpatient-style" >
+<script type='text/javascript' src='/RIS/static/js/cookie'></script>
 </head>
 <body>
-	
-	<div id="main" >
-		<div id="form">
-		<s:form id="searchForm" action="/patient/search">
-			<s:textfield label="First Name" key="patientFName"/>
-			<s:textfield label="Middle Name" key="patientMName"/>
-			<s:textfield label="Last Name" key="patientLName"/>
-			<s:select label="Sex"
-			       name="patientSex"
-			       headerKey="null" headerValue="Select Sex"
-			       list="#{'Male':'Male', 'Female':'Female'}"
-			       value="patientSex"
-			       key="patientSex"
-			       required="true"
-			/>
-			<sj:datepicker label="Birth Date"  id="patientBDate" key="patientBDate" 
-			name="patientBDate" displayFormat="dd.mm.yy" showButtonPanel="true" changeMonth="true" changeYear="true" />
-			<s:textfield label="Address" key="patientAddress"/>
-			<s:textfield label="Telephone" key="patientTelephone"/>	
-			<s:submit value="search" />
-			<s:submit value="add" action="add" />
-		</s:form>
+<div class ="container">
+<%@ include file="topBar.jsp" %>
+<%@ include file="menu.jsp" %>
+
+
+
+
+			<div class="pageblock">
+				<s:form id="searchForm" action="/patient/search">			
+					<s:textfield id="patientFName" name="patientFName" label="Patient Name" />
+					<s:textfield id="patientMName" name="patientMName" />
+					<s:textfield id="patientLName" name="patientLName" />
+				
+				<sj:datepicker label="Birth Date"  id="patientBDate" key="patientBDate" 
+				name="patientBDate" displayFormat="dd/mm/yy" changeMonth="true" changeYear="true" yearRange="-90:+00" />
+				<s:select 
+				       name="patientSex"
+				       id="sex"
+				       headerKey="null" headerValue="Select Sex"
+				       list="#{'Male':'Male', 'Female':'Female'}"
+				       value="patientSex"
+				       required="true"
+				/>
+				
+				
+				<s:textfield label="Address" id="patientAddress" name="patientAddress" />
+				<s:textfield label="Telephone" id="patientTelephone" name="patientTelephone" />
+			
+			
+				<sj:submit value="Search" id="searchbutton" targets="result"/>
+				<s:submit value="Add" action="add" id="addbutton"/>
+			
+			
+			</s:form>
 		
-	</div>
+		</div> <!-- end form -->
 	
+	<div class="pageblock" >
 	<div id="result">
 		<table>
 			<tr> 
+				<th></th>
 				<th>First Name </th>
 				<th>Middle Name </th>
 				<th>Last Name </th>
@@ -48,6 +64,9 @@
 			</tr>
 		   <s:iterator value="%{patients}" var="patient">
 		      <tr>
+		      	<td><s:a href="/RIS/schedule/view" onclick="$.cookie('patientId', '%{PatientId}');
+		      	$.cookie('patientName', '%{PatientFName}+' '+%{PatientLName}'); ">
+		      	Reserve</s:a> </td>	
 		         <td><s:property value="%{PatientFName}"/></td>
 		         <td><s:property value="%{PatientMName}"/></td>
 		         <td><s:property value="%{PatientLName}"/></td>
@@ -60,12 +79,8 @@
    		</table>
 	</div>
 	</div>
-	<div id="links">
-		<s:url var="addPatientRef" value="/static/views/addPatient"/>
-    	<s:a id="addPatientLink" href="%{addPatientRef}" >Add new Patient</s:a>
-    	
-    	<s:url var="scheduleRef" value="/static/views/schedule"/>
-    	<s:a id="scheduleLink" href="%{scheduleRef}" > schedule </s:a>
-	</div>
+	</div> <!-- end container -->
+	<%@ include file="footer.jsp" %>
+
 </body>
 </html>
