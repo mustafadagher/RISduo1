@@ -29,14 +29,6 @@ a:hover{
 }
 
 .container{
-<<<<<<< HEAD
-	width:1100px;
-	min-height:730px;
-	background:url(/RIS/static/image/container-bg);
-	margin:auto; /* to make the container centered */	
-}
-#top-bar{
-=======
 
 	width:1100px;
 	min-height:730px;
@@ -46,7 +38,6 @@ a:hover{
 #top-bar{
 	
 
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 	height:35px;
 	background:#000000 repeat-x;
 }
@@ -127,11 +118,7 @@ a:hover{
 	width:81px;
 	padding-top: 50px;
 }
-<<<<<<< HEAD
-#nav-bar ul li a:visited{
-=======
 /* #nav-bar ul li a:visited{
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 	background:url(/RIS/static/image/marker) no-repeat;
 	float:left;
 	width: 81px;
@@ -142,21 +129,9 @@ a:hover{
 	float:left;
 	width: 81px;
 	height: 74px;
-<<<<<<< HEAD
-}
-
-
-.pageblock{
-	width:1100px;
-	
-	background:url(/RIS/static/image/form-bg);
-	padding:30px 0;
-}
-=======
 } */
 
 
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 #searchForm{
 	width:1050px;
 	height:290px;
@@ -170,17 +145,10 @@ a:hover{
 	margin:auto;
 }
 #result{
-<<<<<<< HEAD
-	width: 1050px;
-	
-	background: #ffffff;
-	margin: auto;
-=======
 	width: 1150px;
 	background: #ffffff;
 	margin:auto;
 	margin-top:-30px;
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 }
 label{
 	margin-top:10px;
@@ -226,43 +194,18 @@ label{
 	border: 1px solid #b7b7b7;
 	padding:0 0 0 10px;
 }
-<<<<<<< HEAD
-#sex{
-	padding:1.5px 0;
-	background:#e9e9e9;
-	border-radius: 5px; 
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	border: 1px solid #b7b7b7;
-	float:left;
-	margin-left: 230px;
-	margin-top: -29px;
-}
-#sexlabel{
-	margin-top:200px;
-}
-#patientBDate{
-	height:30px;
-	float:left;
-	/*margin-left:5px; */
-=======
 
 #patientBDate{
 	height:30px;
 	float:left;
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 	padding:0 0 0 10px;
 	background:#e9e9e9;
 	border-radius: 5px; 
 	-moz-border-radius: 5px; 
 	-webkit-border-radius: 5px; 
 	border: 1px solid #b7b7b7;
-<<<<<<< HEAD
-	height:22px;
-=======
 	height:30px;
 	margin-top:5px;
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 }
 #patientAddress{
 	width:500px;
@@ -273,25 +216,12 @@ label{
 	-webkit-border-radius: 5px; 
 	border: 1px solid #b7b7b7;
 	padding:0 0 0 10px;
-<<<<<<< HEAD
-	margin-top:10px;
-}
-.ui-datepicker-trigger{
-	padding:2px 2px;
-	height:25px;
-	background:#e9e9e9;
-	border-radius: 5px; 
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	border: 1px solid #b7b7b7;
-=======
 }
 .ui-datepicker-trigger{
 	height:30px;
 	background:transparent;
 	border:transparent;
 	margin-top:5px;
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 }
 #patientTelephone{
 	width:180px;
@@ -302,10 +232,7 @@ label{
 	-webkit-border-radius: 5px; 
 	border: 1px solid #b7b7b7;
 	padding:0 0 0 10px;
-<<<<<<< HEAD
-=======
 	margin-top:5px;
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 }
 
 #footer{
@@ -320,17 +247,10 @@ label{
 	
 }
 #searchbutton{
-<<<<<<< HEAD
-	margin-left:20px;
-	
-	width:120px;
-	height:30px;
-=======
 	margin-left:110px;
 	margin-top:20px;
 	width:120px;
 	height:35px;
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 	background-image:url(/RIS/static/image/button1);
 	border-radius: 5px; 
 	-moz-border-radius: 5px; 
@@ -341,13 +261,8 @@ label{
 	
 }
 .normalButton , #addbutton{
-<<<<<<< HEAD
-	width:120px;
-	height:30px;
-=======
 	width:170px;
 	height:35px;
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 	background-image:url(/RIS/static/image/button1);
 	border-radius: 5px; 
 	-moz-border-radius: 5px; 
@@ -355,17 +270,11 @@ label{
 	color:#ffffff;
 	font-size:12pt;
 	font-family:Myriad Pro;
-<<<<<<< HEAD
-}
-#calendar-space{
-	width:1050px;
-=======
 	
 	float: left;
 }
 #calendar-space{
 	width:85%;
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 	min-height:800px;
 	background:#ffffff;
 	margin:auto;	
@@ -382,10 +291,6 @@ min-height: auto;
 }
 
 .pageblock {
-<<<<<<< HEAD
-
-=======
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 padding: 30px 0;
 margin-right: auto;
 margin-left: auto;
@@ -422,11 +327,6 @@ margin: auto;
 .maincontent{
 	background: url(/RIS/static/image/form-bg);
 	width: 100%;
-<<<<<<< HEAD
-}
-#nav-bar{
-	height: 95px;
-=======
 	min-height:600px;
 }
 #nav-bar{
@@ -465,5 +365,4 @@ margin-top: 20px;
    float:left;
 	width: 81px;
 	height: 74px;
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 }

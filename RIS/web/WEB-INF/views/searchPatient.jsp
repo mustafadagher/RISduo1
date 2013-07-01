@@ -9,9 +9,6 @@
 <sj:head />
 <title>Patients</title>
 <link rel= "stylesheet" href="/RIS/static/css/addpatient-style" >
-<<<<<<< HEAD
-<script type='text/javascript' src='/RIS/static/js/cookie'></script>
-=======
 <link rel= "stylesheet" href="/RIS/static/css/tablestyle" >
 <script type='text/javascript' src='/RIS/static/js/cookie'></script>
 <script type="text/javascript">
@@ -45,7 +42,6 @@ function AllowAlphabet(evt)
 }
 
 </script>
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 </head>
 <body>
 <div class ="container">
@@ -53,19 +49,6 @@ function AllowAlphabet(evt)
 <%@ include file="menu.jsp" %>
 	<div class= "maincontent">
 			<div class="pageblock">
-<<<<<<< HEAD
-				<s:form id="searchForm" action="/patient/search">			
-					<s:textfield id="patientFName" name="patientFName" label="Patient Name" />
-					<s:textfield id="patientMName" name="patientMName" />
-					<s:textfield id="patientLName" name="patientLName" />
-				
-				<sj:datepicker label="Birth Date"  id="patientBDate" key="patientBDate" 
-				name="patientBDate" displayFormat="dd/mm/yy" changeMonth="true" changeYear="true" yearRange="-90:+00" />
-				<s:select 
-				       name="patientSex"
-				       id="sex"
-				       headerKey="null" headerValue="Select Sex"
-=======
 			<s:form id="searchForm" action="/patient/search">			
 					<s:textfield id="patientFName" name="patientFName" label="Patient Name" placeholder="%{getText('First')}" onkeypress="return AllowAlphabet(event)" />
 					<s:textfield id="patientMName" name="patientMName" placeholder="%{getText('Middle')}" onkeypress="return AllowAlphabet(event)"/>
@@ -82,60 +65,18 @@ function AllowAlphabet(evt)
 				       name="patientSex"
 				       label="Sex" headerValue="Gender"
 				       headerKey="null" id="sex"
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 				       list="#{'Male':'Male', 'Female':'Female'}"
 				       value="patientSex"
 				       required="true"
 				/>
-<<<<<<< HEAD
-				
-				
-				<s:textfield label="Address" id="patientAddress" name="patientAddress" />
-				<s:textfield label="Telephone" id="patientTelephone" name="patientTelephone" />
-			
-			
-				<sj:submit value="Search" id="searchbutton" targets="result"/>
-				<s:submit value="Add" action="add" id="addbutton"/>
-			
-			
-=======
 				<sj:submit value="Search" id="searchbutton" targets="result" />
 				<s:submit value="Create New Patient" action="add" id="addbutton"/>
 			
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 			</s:form>
 		
 		</div> <!-- end form -->
 	
 	<div class="pageblock" >
-<<<<<<< HEAD
-	<div id="result">
-		<table>
-			<tr> 
-				<th></th>
-				<th>First Name </th>
-				<th>Middle Name </th>
-				<th>Last Name </th>
-				<th>Sex</th>
-				<th>Birth Date</th>
-				<th>Address</th>
-				<th>Telephone</th> 
-			</tr>
-		   <s:iterator value="%{patients}" var="patient">
-		      <tr>
-		      	<td><s:a href="/RIS/schedule/view" onclick="$.cookie('patientId', '%{PatientId}');
-		      	$.cookie('patientName', '%{PatientFName}+' '+%{PatientLName}'); ">
-		      	Reserve</s:a> </td>	
-		         <td><s:property value="%{PatientFName}"/></td>
-		         <td><s:property value="%{PatientMName}"/></td>
-		         <td><s:property value="%{PatientLName}"/></td>
-		         <td><s:property value="%{PatientSex}"/></td>
-		         <td><s:property value="%{PatientBDate}"/></td>
-		         <td><s:property value="%{PatientAddress}"/></td>
-		         <td><s:property value="%{PatientTelephone}"/></td>
-		      </tr>
-		   </s:iterator>
-=======
 	<div id="result" >
 		<div class="Table-format" >
 		<table>
@@ -150,15 +91,10 @@ function AllowAlphabet(evt)
 				<td></td>
 			</tr>
 		  
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
    		</table>
    		</div> <!-- end table-format -->
 	</div>
-<<<<<<< HEAD
-	</div>
-=======
 	</div> <!-- end pageblock -->
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 	</div>
 	</div> <!-- end container -->
 	<%@ include file="footer.jsp" %>

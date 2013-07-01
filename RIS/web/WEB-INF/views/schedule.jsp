@@ -12,8 +12,6 @@
 <script type='text/javascript' src='/RIS/static/js/jqueryui'></script>
 <script type='text/javascript' src='/RIS/static/js/cookie'></script>
 <script type='text/javascript' src='/RIS/static/js/fullcalendar'></script>
-<<<<<<< HEAD
-=======
 <script type="text/javascript">
 $('#nav-bar ul li a').click(function()
 		{
@@ -25,7 +23,6 @@ $('#nav-bar ul li a').click(function()
 
 	});
 	</script>
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 <title>Schedule</title>
 <link rel= "stylesheet" href="/RIS/static/css/addpatient-style" >
 </head>
@@ -120,18 +117,12 @@ $('#nav-bar ul li a').click(function()
 	<div class ="container">
 <%@ include file="topBar.jsp" %>
 <%@ include file="menu.jsp" %>
-<<<<<<< HEAD
-=======
 <div class= "maincontent">
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 <div id=calendar-space>
 	
 	<div id='calendar'>
 	</div>
-<<<<<<< HEAD
-=======
 </div>
->>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 	
 	</div>
 	</div> <!-- end container -->
