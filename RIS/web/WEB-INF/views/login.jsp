@@ -18,8 +18,8 @@
 
 	<div id ="login-form">
 		<s:form action="login" name="loginForm">
-			<s:textfield style="color:#696969" id="username" name="userName" value="User Name" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
-			<s:password style="color:#696969" id="password" name="password" value="Password" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
+			<s:textfield style="color:#696969" id="username" name="userName" placeholder="%{getText('user name')}"/>
+			<s:password style="color:#696969" id="password" name="password" placeholder="%{getText('password')}"/>
 			<s:submit id="button" value="login" type="image" src="/RIS/static/image/button"/>
 		</s:form>
 	</div> 

@@ -4,6 +4,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import com.cufe.risduo.model.Event;
+import com.cufe.risduo.model.Procedure;
 import com.cufe.risduo.model.Reservation;
 
 
@@ -45,5 +46,8 @@ public interface ReservationDao {
     */
    
    public int update(Reservation reservation);
+   
+   public List<Procedure> listProcedures();
 }
+
 
