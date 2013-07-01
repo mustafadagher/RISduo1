@@ -32,7 +32,11 @@ public class ScheduleService {
 		resourcesJson = gson.toJson(resources).replace("\"name\"","name").replace("\"id\"", "id");
 		
 		
+<<<<<<< HEAD
 		try {
+=======
+		/*try {
+>>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 			//write converted json data to a file named "file.json"
 			FileWriter writer = new FileWriter("C:\\Users\\Mustafa\\Documents\\GitHub\\RISduo1\\RIS\\web\\WEB-INF\\json\\resources.json");
 			writer.write(resourcesJson);
@@ -42,7 +46,11 @@ public class ScheduleService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 		
+=======
+	*/	
+>>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 		return resourcesJson;
 	}
 	
@@ -62,7 +70,11 @@ public String getEventsJson(){
 				.replace("\"textColor\"", "textColor").replace("\"false\"", "false").replace("\"url\"", "url");
 		
 		
+<<<<<<< HEAD
 		try {
+=======
+		/*try {
+>>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 			//write converted json data to a file named "file.json"
 			FileWriter writer = new FileWriter("C:\\Users\\Mustafa\\Documents\\GitHub\\RISduo1\\RIS\\web\\WEB-INF\\json\\events.json");
 			writer.write(eventsJson);
@@ -71,7 +83,11 @@ public String getEventsJson(){
 	 
 		} catch (IOException e) {
 			e.printStackTrace();
+<<<<<<< HEAD
 		}
+=======
+		}*/
+>>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
 		
 		return eventsJson;
 	}

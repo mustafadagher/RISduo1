@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 eclipse.preferences.version=1
 lastWarOutDir=C\:/struts-2.3.14/war
 warSrcDir=web
 warSrcDirIsOutput=false
+=======
+eclipse.preferences.version=1
+lastWarOutDir=C\:/struts-2.3.14/war
+warSrcDir=web
+warSrcDirIsOutput=false
+>>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
