@@ -10,6 +10,7 @@ public class Event {
 	private Integer resourceId;
 	private String color;
 	private String textColor;
+	private String url;
 	
 	public String getTitle() {
 		return title;
@@ -54,6 +55,12 @@ public class Event {
 	}
 	public void setAllDay(String allDay) {
 		this.allDay = allDay;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
 	

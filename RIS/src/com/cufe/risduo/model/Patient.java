@@ -2,9 +2,11 @@ package com.cufe.risduo.model;
 
 public class Patient {
 	
+	private Integer patientId;
 	private String patientFName;
 	private String patientMName;
 	private String patientLName;
+	private Long patientNID;
 	private String patientSex;
 	private String patientBDate;
 	private String patientAddress;
@@ -14,10 +16,11 @@ public class Patient {
 		
 	}
 	
-	public Patient(String patientFName, String patientMName,
+	public Patient( Integer patientId, String patientFName, String patientMName,
 			String patientLName, String patientSex, String patientBDate,
 			String patientAddress, int patientTelephone) {
 		
+		setPatientId(patientId);
 		setPatientFName(patientFName);
 		setPatientMName (patientMName);
 		setPatientLName (patientLName);
@@ -47,6 +50,14 @@ public class Patient {
 	public void setPatientFName(String patientFName) {
 		this.patientFName = patientFName;
 	}
+	public Long getPatientNID() {
+		return patientNID;
+	}
+
+	public void setPatientNID(Long patientNID) {
+		this.patientNID = patientNID;
+	}
+
 	public String getPatientSex() {
 		return patientSex;
 	}
@@ -70,5 +81,13 @@ public class Patient {
 	}
 	public void setPatientTelephone(int patientTelephone) {
 		this.patientTelephone = patientTelephone;
+	}
+
+	public Integer getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
 	}
 }

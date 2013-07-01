@@ -65,6 +65,7 @@ public class PatientAction extends ActionSupport implements ModelDriven<Patient>
 	}
 	public String searchPatient(){
 		PatientService patientService= new PatientService();
+		System.out.println(getCondtion());
 		setPatients(patientService.searchPatients(getCondtion()));
 		System.out.println(getPatients());
 		return INPUT;

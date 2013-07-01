@@ -3,15 +3,13 @@ package com.cufe.risduo.dao;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import org.springframework.jdbc.core.RowMapper;
 
 import com.cufe.risduo.model.Event;
-import com.cufe.risduo.model.Reservation;
-import com.cufe.risduo.model.Room;
+
 
 public class EventMapper implements RowMapper<Event>{
 
@@ -22,10 +20,10 @@ public class EventMapper implements RowMapper<Event>{
 		String lName = rs.getNString("patientLName");
 		String title = fName+" "+lName;
 		long examDuration = rs.getInt("roomScanDuration")*60;
-		int patientStatus= rs.getInt("patientStatus");
+		int patientStatus= rs.getInt("reservationPatientStatus");
 		String color= "blue";
 		String textColor= "white";
-		//yyyy-mm-dd hh:mm:ss
+		
 		
 		DateFormat df = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
 		
@@ -34,7 +32,9 @@ public class EventMapper implements RowMapper<Event>{
 		
 		String start = df.format(new Date((startTimestamp*1000)));
 		String end = df.format(new Date ((endTimestamp*1000)));
-		
+		Integer roomId= rs.getInt("reservationRoomId");
+		String url = "/RIS/reservation/edit?patientFName="+fName+"&patientLName="+
+		lName+"&reservationRoomId="+roomId+"&reservationExamTime="+startTimestamp;
 		
 		switch (patientStatus){
 		case 0:
@@ -72,9 +72,10 @@ public class EventMapper implements RowMapper<Event>{
 	    event.setTitle(title);
 	    event.setStart(start); 
 	    event.setEnd(end);
-	    event.setResourceId(rs.getInt("reservationRoomId"));
+	    event.setResourceId(roomId);
 	    event.setColor(color);
 	    event.setTextColor(textColor);
+	    event.setUrl(url);
 		return event;
 	}
 

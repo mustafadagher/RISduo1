@@ -9,8 +9,11 @@
 			<result name="input">/WEB-INF/views/searchPatient.jsp</result>
 		</action>
 		<action name="search" class="com.cufe.risduo.action.PatientAction" method="searchPatient">
-			<result name="success">/WEB-INF/views/searchPatient.jsp</result>
-			<result name="input">/WEB-INF/views/searchPatient.jsp</result>
+			<result name="success">/WEB-INF/views/patientSearchResult.jsp</result>
+			<result name="input">/WEB-INF/views/patientSearchResult.jsp</result>
+		</action>
+		<action name="form" >
+			<result >/WEB-INF/views/searchPatient.jsp</result>
 		</action>
 	</package>
 	

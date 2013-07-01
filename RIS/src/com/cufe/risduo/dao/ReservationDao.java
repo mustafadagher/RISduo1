@@ -5,8 +5,7 @@ import javax.sql.DataSource;
 
 import com.cufe.risduo.model.Event;
 import com.cufe.risduo.model.Reservation;
-import com.cufe.risduo.model.Resource;
-import com.cufe.risduo.model.Room;
+
 
 public interface ReservationDao {
    /** 
@@ -25,6 +24,9 @@ public interface ReservationDao {
     * to a passed patient id.
     */
    public Reservation getReservation(Integer r_Id);
+   public Reservation getEventReservation(Integer reservationExamTime,
+			Integer reservationRoomId, String patientFName, 
+			String patientLName);
    /** 
     * This is the method to be used to list down
     * all the records from the patient table.
@@ -42,6 +44,6 @@ public interface ReservationDao {
     * a record into the patient table.
     */
    
-   void update(Reservation reservation);
+   public int update(Reservation reservation);
 }
 

@@ -9,70 +9,92 @@
 <sj:head />
 <title>Patients</title>
 <link rel= "stylesheet" href="/RIS/static/css/addpatient-style" >
+<link rel= "stylesheet" href="/RIS/static/css/tablestyle" >
+<script type='text/javascript' src='/RIS/static/js/cookie'></script>
+<script type="text/javascript">
+
+function isNumberKey(evt)
+{
+   var charCode = (evt.which) ? evt.which : event.keyCode;
+   if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+      return false;
+
+   return true;
+}
+$('#nav-bar ul li a').click(function()
+		{
+
+		  $('#nav-bar ul li a.selected').addClass('link');
+		   $('#nav-bar ul li a.selected').removeClass('selected');
+		   $(this).removeClass('link');
+		   $(this).addClass('selected');
+
+		});
+function AllowAlphabet(evt)
+{
+	evt = (evt) ? evt : event;
+    var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+((evt.which) ? evt.which : 0));
+    if (charCode > 31 && (charCode < 65 || charCode > 90) &&(charCode < 97 || charCode > 122))
+        return false;
+    else
+        return true;
+}
+
+</script>
 </head>
 <body>
 <div class ="container">
 <%@ include file="topBar.jsp" %>
 <%@ include file="menu.jsp" %>
-
-
-
-
-<div id="form">
-		<s:form id="searchForm" action="/patient/search">
-		
-			
-					<s:textfield id="patientFName" name="patientFName" label="Patient Name" value="First" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
-					<s:textfield id="patientMName" name="patientMName" value="Middle" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
-					<s:textfield id="patientLName" name="patientLName" value="Last" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
+	<div class= "maincontent">
+			<div class="pageblock">
+			<s:form id="searchForm" action="/patient/search">			
+					<s:textfield id="patientFName" name="patientFName" label="Patient Name" placeholder="%{getText('First')}" onkeypress="return AllowAlphabet(event)" />
+					<s:textfield id="patientMName" name="patientMName" placeholder="%{getText('Middle')}" onkeypress="return AllowAlphabet(event)"/>
+					<s:textfield id="patientLName" name="patientLName" placeholder="%{getText('Last')}" onkeypress="return AllowAlphabet(event)"  />
+					
+				<s:textfield label="Address" id="patientAddress" name="patientAddress" placeholder="%{getText('Patient Address')}"  />
+				<s:textfield label="Telephone" id="patientTelephone" name="patientTelephone" placeholder="%{getText('Patient Telephone')}" onkeypress="return isNumberKey(event)"/>	
 				
-				<sj:datepicker label="Birth Date"  id="patientBDate" key="patientBDate" value="Birth Date" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"
-				name="patientBDate" displayFormat="dd/mm/yy" showButtonPanel="true" changeMonth="true" changeYear="true" />
-				<s:select 
+				<sj:datepicker label="Birth Date"  id="patientBDate" key="patientBDate" placeholder="%{getText('Birth Date')}" 
+				name="patientBDate" displayFormat="dd/mm/yy" changeMonth="true" changeYear="true" yearRange="-90:+00" />
+				
+				
+				<s:select cssClass="selectBox"
 				       name="patientSex"
-				       id="sex"
-				       headerKey="null" headerValue="Select Sex"
+				       label="Sex" headerValue="Gender"
+				       headerKey="null" id="sex"
 				       list="#{'Male':'Male', 'Female':'Female'}"
 				       value="patientSex"
 				       required="true"
 				/>
-				
-				
-				<s:textfield label="Address" id="patientAddress" name="patientAddress" value="Patient Address" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
-				<s:textfield label="Telephone" id="patientTelephone" name="patientTelephone" value="Patient Telephone" onfocus="this.value==this.defaultValue?this.value='':null" onblur="if(this.value=='')this.value=this.defaultValue"/>
+				<sj:submit value="Search" id="searchbutton" targets="result" />
+				<s:submit value="Create New Patient" action="add" id="addbutton"/>
 			
-			
-			<s:submit value="Search" id="searchbutton"/>
-			<s:submit value="Add" action="add" id="addbutton"/>
-			
-			
-		</s:form>
+			</s:form>
 		
-</div> <!-- end form -->
+		</div> <!-- end form -->
 	
-	<div id="result">
+	<div class="pageblock" >
+	<div id="result" >
+		<div class="Table-format" >
 		<table>
 			<tr> 
-				<th>First Name </th>
-				<th>Middle Name </th>
-				<th>Last Name </th>
-				<th>Sex</th>
-				<th>Birth Date</th>
-				<th>Address</th>
-				<th>Telephone</th> 
+				<td>First Name </td>
+				<td>Middle Name </td>
+				<td>Last Name </td>
+				<td>Sex</td>
+				<td>Birth Date</td>
+				<td>Address</td>
+				<td>Telephone</td> 
+				<td></td>
 			</tr>
-		   <s:iterator value="%{patients}" var="patient">
-		      <tr>
-		         <td><s:property value="%{PatientFName}"/></td>
-		         <td><s:property value="%{PatientMName}"/></td>
-		         <td><s:property value="%{PatientLName}"/></td>
-		         <td><s:property value="%{PatientSex}"/></td>
-		         <td><s:property value="%{PatientBDate}"/></td>
-		         <td><s:property value="%{PatientAddress}"/></td>
-		         <td><s:property value="%{PatientTelephone}"/></td>
-		      </tr>
-		   </s:iterator>
+		  
    		</table>
+   		</div> <!-- end table-format -->
+	</div>
+	</div> <!-- end pageblock -->
 	</div>
 	</div> <!-- end container -->
 	<%@ include file="footer.jsp" %>

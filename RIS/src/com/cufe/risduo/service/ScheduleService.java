@@ -10,7 +10,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.cufe.risduo.dao.ReservationDaoImpl;
 import com.cufe.risduo.dao.RoomDaoImpl;
 import com.cufe.risduo.model.Event;
-import com.cufe.risduo.model.Reservation;
 import com.cufe.risduo.model.Resource;
 import com.google.gson.Gson;
 
@@ -33,7 +32,7 @@ public class ScheduleService {
 		resourcesJson = gson.toJson(resources).replace("\"name\"","name").replace("\"id\"", "id");
 		
 		
-		try {
+		/*try {
 			//write converted json data to a file named "file.json"
 			FileWriter writer = new FileWriter("C:\\Users\\Mustafa\\Documents\\GitHub\\RISduo1\\RIS\\web\\WEB-INF\\json\\resources.json");
 			writer.write(resourcesJson);
@@ -43,7 +42,7 @@ public class ScheduleService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+	*/	
 		return resourcesJson;
 	}
 	
@@ -60,10 +59,10 @@ public String getEventsJson(){
 		eventsJson = gson.toJson(events).replace("\"title\"","title").replace("\"start\"", "start")
 				.replace("\"end\"", "end").replace("\"allDay\"", "allDay")
 				.replace("\"resourceId\"", "resourceId").replace("\"color\"", "color")
-				.replace("\"textColor\"", "textColor").replace("\"false\"", "false");
+				.replace("\"textColor\"", "textColor").replace("\"false\"", "false").replace("\"url\"", "url");
 		
 		
-		try {
+		/*try {
 			//write converted json data to a file named "file.json"
 			FileWriter writer = new FileWriter("C:\\Users\\Mustafa\\Documents\\GitHub\\RISduo1\\RIS\\web\\WEB-INF\\json\\events.json");
 			writer.write(eventsJson);
@@ -72,7 +71,7 @@ public String getEventsJson(){
 	 
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 		return eventsJson;
 	}

@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.cufe.risduo.model.Resource;
-import com.cufe.risduo.model.Room;
 
 public class ResourceMapper implements RowMapper<Resource>{
 

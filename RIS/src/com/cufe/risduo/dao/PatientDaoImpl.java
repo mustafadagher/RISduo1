@@ -1,17 +1,13 @@
 package com.cufe.risduo.dao;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import com.cufe.risduo.model.Patient;
+import com.cufe.risduo.model.Reservation;
 
 @Component
 public class PatientDaoImpl implements PatientDao{
@@ -76,10 +72,24 @@ public class PatientDaoImpl implements PatientDao{
 	}
 
 	
-	public void update(String patientFName, String patientMName,
-			String patientLName, String patientSex, String patientBDate,
-			String patientAddress, int patientTelephone) {
+	public int update(Patient patient) {
 		
-		
+		String sql = "UPDATE patient set patientFName=?, " +
+				"patientMName= ?, patientLName = ?," +
+				"patientNID= ? where patientID = ?";
+			 
+		int numRows =  jdbcTemplate.update(sql, new Object[] {patient.getPatientFName(), 
+				patient.getPatientMName(), patient.getPatientLName(), patient.getPatientNID(), patient.getPatientId()});
+		 return numRows;
+			
+	}
+
+	
+	public Patient getEventPatient(Integer reservationExamTime,
+			Integer reservationRoomId, String patientFName, String patientLName) {
+		String SQL = "select * from reservation, patient where reservationPatientId=patientId and reservationExamTime = ? and reservationRoomId= ? and patientFName = ? and patientLName = ?";
+		Patient patient = (Patient)jdbcTemplate.queryForObject(SQL, 
+                new Object[]{reservationExamTime, reservationRoomId, patientFName, patientLName}, new PatientMapper());
+		return patient;
 	}
 }

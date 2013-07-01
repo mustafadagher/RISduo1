@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+filesCopiedToWebInfLib=
+googleCloudSqlEnabled=false
+localDevMySqlEnabled=true
+mySqlDatabaseName=risduo
+mySqlDatabasePassword=1781991
+mySqlDatabaseUser=root
+mySqlHostName=localhost
+mySqlIsConfigured=true
+mySqlJdbcJar=D\:\\programs\\Java software\\mysql-connector-java-5.1.24\\mysql-connector-java-5.1.24-bin.jar
+mySqlPort=3306
