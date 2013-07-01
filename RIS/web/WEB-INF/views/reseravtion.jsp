@@ -66,7 +66,7 @@ function update(){
 				<s:textfield id="reservationBillingData" cssClass="normalTextBox" name="reservationBillingData" label="Billing Data" />
 				<s:submit value="Job Order" action="order" id="addbutton"/> 
 				<%-- <sj:submit value="Save" action="update" cssClass="normalButton" id="savebutton" targets="formResult" openDialog="resultDialog"/> --%>
-				 <sj:submit value="Cancel" action="cancel" cssClass="normalButton" id="cancelbutton" targets="cancelResult" openDialog="cancelDialog"/>
+				 <sj:submit value="Cancel"  cssClass="normalButton" id="cancelbutton" targets="cancelResult" openDialog="cancelDialog"/>
 				
 			</s:form>
 		
