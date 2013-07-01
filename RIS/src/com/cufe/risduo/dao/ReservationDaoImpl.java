@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.cufe.risduo.model.Event;
+import com.cufe.risduo.model.Procedure;
 import com.cufe.risduo.model.Reservation;
 
 @Component
@@ -119,6 +120,23 @@ public class ReservationDaoImpl implements ReservationDao{
 		Reservation reservation= (Reservation)jdbcTemplate.queryForObject(SQL, 
                 new Object[]{reservationExamTime, reservationRoomId, patientFName, patientLName}, new ReservationMapper());
 		return reservation;
+	}
+	
+
+	public List<Procedure> listProcedures() {
+		Integer secInDay = 60*60*24;
+		Integer currentTimeStamp= (int) (System.currentTimeMillis()/1000);
+		Integer secPortion = currentTimeStamp%secInDay;
+		Integer todayTimestamp = currentTimeStamp- secPortion;
+		Integer tomTimestamp = todayTimestamp + secInDay;
+		System.out.println("today:"+ todayTimestamp+"\nTom:"+tomTimestamp);
+		String sql = "SELECT * FROM reservation, patient, room " +
+				"WHERE " +
+				"reservationPatientId = patientId AND reservationRoomId = roomId" +
+				" and reservationPatientStatus = 1 " +
+				"and reservationExamTime >= ? and reservationExamTime < ?";
+		List<Procedure> procedures = jdbcTemplate.query(sql,new Object[]{todayTimestamp, tomTimestamp} ,new ProcedureMapper()); 
+		return procedures;
 	}
 	
 }

@@ -31,18 +31,7 @@ public class ScheduleService {
 		
 		resourcesJson = gson.toJson(resources).replace("\"name\"","name").replace("\"id\"", "id");
 		
-		
-		/*try {
-			//write converted json data to a file named "file.json"
-			FileWriter writer = new FileWriter("C:\\Users\\Mustafa\\Documents\\GitHub\\RISduo1\\RIS\\web\\WEB-INF\\json\\resources.json");
-			writer.write(resourcesJson);
-			writer.close();
-			System.out.println("file written at C:\\Users\\Mustafa\\Documents\\GitHub\\RISduo1\\RIS\\web\\WEB-INF\\json");
-	 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	*/	
+
 		return resourcesJson;
 	}
 	
@@ -62,17 +51,7 @@ public String getEventsJson(){
 				.replace("\"textColor\"", "textColor").replace("\"false\"", "false").replace("\"url\"", "url");
 		
 		
-		/*try {
-			//write converted json data to a file named "file.json"
-			FileWriter writer = new FileWriter("C:\\Users\\Mustafa\\Documents\\GitHub\\RISduo1\\RIS\\web\\WEB-INF\\json\\events.json");
-			writer.write(eventsJson);
-			writer.close();
-			System.out.println("file written at C:\\Users\\Mustafa\\Documents\\GitHub\\RISduo1\\RIS\\web\\WEB-INF\\json\\events.json");
-	 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
-		
+
 		return eventsJson;
 	}
 	

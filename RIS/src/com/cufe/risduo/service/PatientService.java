@@ -18,12 +18,14 @@ public class PatientService {
 				//if role recep.
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		PatientDaoImpl dao = ctx.getBean("patientDaoImpl", PatientDaoImpl.class);
-		
+		System.out.println("Adding new Patient");
 		int numRows = dao.create(patient.getPatientFName(), patient.getPatientMName(), patient.getPatientLName(), patient.getPatientSex(), patient.getPatientBDate(), patient.getPatientAddress(), patient.getPatientTelephone());
 		
 		if (numRows>0){
+			System.out.println("Patient Added");
 			return true;
 		}
+		System.out.println("No Patient added");
 		return false;
 	}
 	public List<Patient> searchPatients(String condition){

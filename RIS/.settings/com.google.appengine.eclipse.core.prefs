@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 eclipse.preferences.version=1
 filesCopiedToWebInfLib=
 googleCloudSqlEnabled=false
@@ -9,3 +10,16 @@ mySqlHostName=localhost
 mySqlIsConfigured=true
 mySqlJdbcJar=D\:\\programs\\Java software\\mysql-connector-java-5.1.24\\mysql-connector-java-5.1.24-bin.jar
 mySqlPort=3306
+=======
+eclipse.preferences.version=1
+filesCopiedToWebInfLib=
+googleCloudSqlEnabled=false
+localDevMySqlEnabled=true
+mySqlDatabaseName=risduo
+mySqlDatabasePassword=1781991
+mySqlDatabaseUser=root
+mySqlHostName=localhost
+mySqlIsConfigured=true
+mySqlJdbcJar=D\:\\programs\\Java software\\mysql-connector-java-5.1.24\\mysql-connector-java-5.1.24-bin.jar
+mySqlPort=3306
+>>>>>>> 2157d334380bcea7e2b98ef6d842c314617ceef7
