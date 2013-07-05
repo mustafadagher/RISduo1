@@ -9,6 +9,7 @@
 	<include file="schedule.xml" />
 	<include file="reservation.xml" />
 	<include file="procedure.xml" />
+	<include file="exam.xml" />
 	
 	<package name="default" namespace="/tutorials" extends="struts-default">
 		<action name="getTutorial" class="com.cufe.risduo.action.TutorialAction" method="getTutorial">

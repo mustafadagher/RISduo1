@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">	
+<struts>
+	<package name="exam" namespace="/exam" extends="struts-default">
+		<action name="start" class="com.cufe.risduo.action.ExamAction" method="startExam">
+			<result name="success">/WEB-INF/views/exam.jsp</result>
+			<result name="input">/WEB-INF/views/exam.jsp</result>
+			<result name="error">/WEB-INF/views/procedures.jsp</result>
+		</action>
+		
+		<action name="end" class="com.cufe.risduo.action.ExamAction" method="endExam">
+			<result name="success">/WEB-INF/views/procedures.jsp</result>
+			<result name="error">/WEB-INF/views/exam.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -20,21 +20,38 @@ public class PatientAction extends ActionSupport implements ModelDriven<Patient>
 	
 	public void validate (){
 		String cond =  new String();
+		int count = 0;
 		cond = "";
-		if (!StringUtils.isEmpty(patient.getPatientFName()))
+		
+		if (!StringUtils.isEmpty(patient.getPatientFName())){
 			cond+="patientFName='"+patient.getPatientFName()+"' and ";
-		if (!StringUtils.isEmpty(patient.getPatientMName()))
+			count++;
+		}
+		if (!StringUtils.isEmpty(patient.getPatientMName())){
 			cond+="patientMName='"+patient.getPatientMName()+"' and ";
-		if (!StringUtils.isEmpty(patient.getPatientLName()))
+			count++;
+		}
+		if (!StringUtils.isEmpty(patient.getPatientLName())){
 			cond+="patientLName='"+patient.getPatientLName()+"' and ";
-		if (!StringUtils.isEmpty(patient.getPatientSex()))
+			count++;
+		}
+		if ((!StringUtils.isEmpty(patient.getPatientSex()))&&(patient.getPatientSex()!="null")){
 			cond+="patientSex='"+patient.getPatientSex()+"' and ";
-		if (!StringUtils.isEmpty(patient.getPatientBDate()))
+			count++;
+		}
+		if (!StringUtils.isEmpty(patient.getPatientBDate())){
 			cond+="patientBDate='"+patient.getPatientBDate()+"' and ";
-		if (!StringUtils.isEmpty(patient.getPatientAddress()))
+			count++;
+		}
+		if (!StringUtils.isEmpty(patient.getPatientAddress())){
 			cond+="patientAddress='"+patient.getPatientAddress()+"' and ";
+			count++;
+		}
 		if ((Integer.valueOf(patient.getPatientTelephone()))!=null)
-			cond+="patientTelephone="+patient.getPatientTelephone();
+			if((Integer.valueOf(patient.getPatientTelephone()))!=0){
+				cond+="patientTelephone="+patient.getPatientTelephone();
+				count++;
+			}
 			
 		if ("".equals(cond))	
 		{
@@ -43,6 +60,9 @@ public class PatientAction extends ActionSupport implements ModelDriven<Patient>
 		}
 		else
 		{
+			if (count<2){
+				cond= cond.replace("and", " ");
+			}
 			setCondtion(cond);
 			System.out.println(getCondtion());
 		}	

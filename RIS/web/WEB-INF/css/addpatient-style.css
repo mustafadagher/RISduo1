@@ -366,3 +366,17 @@ margin-top: 20px;
 	width: 81px;
 	height: 74px;
 }
+
+/*updates 2-7-2013 11:25pm*/
+.container {
+width: 100%;
+background: url(/RIS/static/image/form-bg);
+margin: auto;
+min-height: auto;
+}
+
+#nav-bar {
+height: 95px;
+background: url(/RIS/static/image/container-bg);
+background-size: 100%;
+}

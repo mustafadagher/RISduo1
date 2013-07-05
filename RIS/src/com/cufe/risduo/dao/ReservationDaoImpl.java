@@ -138,5 +138,14 @@ public class ReservationDaoImpl implements ReservationDao{
 		List<Procedure> procedures = jdbcTemplate.query(sql,new Object[]{todayTimestamp, tomTimestamp} ,new ProcedureMapper()); 
 		return procedures;
 	}
+
+	
+	public int updateStatus(Integer r_Id, Integer status) {
+		
+		String sql = "UPDATE reservation set reservationPatientStatus= ? where r_Id = ?";
+		 
+		int numRows =  jdbcTemplate.update(sql, new Object[] {status , r_Id});
+		 return numRows;
+	}
 	
 }
