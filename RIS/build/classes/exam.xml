@@ -14,5 +14,16 @@
 			<result name="success">/WEB-INF/views/procedures.jsp</result>
 			<result name="error">/WEB-INF/views/exam.jsp</result>
 		</action>
+		<action name="list" class="com.cufe.risduo.action.ExamAction" method="listExams">
+			<result name="success">/WEB-INF/views/examList.jsp</result>
+			<result name="input">/WEB-INF/views/examList.jsp</result>
+		</action>
+		<action name="report" class="com.cufe.risduo.action.ExamAction" method="report">
+			<result name="success">/WEB-INF/views/report.jsp</result>
+		</action>
+		<action name="createReport" class="com.cufe.risduo.action.ExamAction" method="createReport">
+			<result name="success">/WEB-INF/views/examList.jsp</result>
+			<result name="error">/WEB-INF/views/report.jsp</result>
+		</action>
 	</package>
 </struts>

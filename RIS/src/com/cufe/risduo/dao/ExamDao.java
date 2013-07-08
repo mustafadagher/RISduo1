@@ -4,6 +4,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import com.cufe.risduo.model.Exam;
+import com.cufe.risduo.model.ExamView;
 
 
 
@@ -29,7 +30,7 @@ public interface ExamDao {
     * This is the method to be used to list down
     * all the records from the patient table.
     */
-   public List<Exam> listExams();
+   public List<ExamView> listExams( boolean reported);
    /** 
     * This is the method to be used to delete
     * a record from the patient table corresponding
@@ -45,6 +46,7 @@ public interface ExamDao {
    public int update(Exam exam);
    
    public int updateExamEnd(Integer examReservationId, Integer examEndTime, String ExamPatientComplaint);
+   public int updateExamReport(Integer examId, String ExamReport);
 }
 
 

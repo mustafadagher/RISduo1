@@ -1,5 +1,8 @@
 package com.cufe.risduo.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +11,7 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 
 import com.cufe.risduo.model.Exam;
+import com.cufe.risduo.model.ExamView;
 
 import com.cufe.risduo.service.ExamService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,7 +22,10 @@ public class ExamAction extends ActionSupport implements ModelDriven<Exam>, Serv
 	protected HttpServletResponse servletResponse;
 	protected HttpServletRequest servletRequest;
 	
+	public static final boolean REPORTED = true;
+	
 	private Exam exam =  new Exam();
+	private List<ExamView> exams = new ArrayList<ExamView>();
 	 
 	
 	public void validate (){
@@ -73,6 +80,57 @@ public class ExamAction extends ActionSupport implements ModelDriven<Exam>, Serv
 		
 	}
 	
+	public String listExams(){
+		
+		ExamService examService = new ExamService();
+		setExams(examService.listExams(!REPORTED));
+		return INPUT;
+	}
+	
+	public String report(){
+		System.out.println("opening reporting for examID:"+getExam().getExamId()+" ResID:"+getExam().getExamReservationId());
+		
+		Cookie eid = new Cookie("examId", String.format("%d",getExam().getExamId()));
+		eid.setPath("/");
+		servletResponse.addCookie(eid);
+		
+		Cookie eRId = new Cookie("reportReservationId", String.format("%d",getExam().getExamReservationId()));
+		eRId.setPath("/");
+		servletResponse.addCookie(eRId);
+		
+		return SUCCESS;
+	}
+	
+	public String createReport(){
+		
+		Integer examReservationId = null;
+		Integer examId = null;
+		// Load from cookie
+		 for(Cookie c : servletRequest.getCookies()) {
+		   if (c.getName().equals("reportReservationId")){
+			   examReservationId = Integer.parseInt(c.getValue());
+			   //clearing cookies after assigning them to variables
+			   c.setMaxAge(0);
+			   c.setValue("");
+			   servletResponse.addCookie(c);
+		   }
+		   if (c.getName().equals("examId")){
+			   examId = Integer.parseInt(c.getValue());
+			   //clearing cookies after assigning them to variables
+			   c.setMaxAge(0);
+			   c.setValue("");
+			   servletResponse.addCookie(c);
+		   }
+		 }
+		 getExam().setExamReservationId(examReservationId);
+		 getExam().setExamId(examId);
+		 System.out.println("Creating report for Exam:"+ getExam().getExamId()+" Res:"+ getExam().getExamReservationId()+"with report:"+getExam().getExamReport());
+		 ExamService examService= new ExamService();
+			if (examService.updateExamReport(getExam().getExamId(),getExam().getExamReservationId(), getExam().getExamReport()))
+				return SUCCESS;
+			return ERROR;
+	}
+	
 	public Exam getExam() {
 		return exam;
 	}
@@ -82,6 +140,14 @@ public class ExamAction extends ActionSupport implements ModelDriven<Exam>, Serv
 	}
 	
 	
+	public List<ExamView> getExams() {
+		return exams;
+	}
+
+	public void setExams(List<ExamView> exams) {
+		this.exams = exams;
+	}
+
 	@Override
 	public Exam getModel() {
 		

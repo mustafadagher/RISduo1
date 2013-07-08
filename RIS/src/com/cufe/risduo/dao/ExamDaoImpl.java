@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.cufe.risduo.model.Exam;
+import com.cufe.risduo.model.ExamView;
 
 
 
@@ -55,10 +56,25 @@ public class ExamDaoImpl implements ExamDao{
 		return exam;
 	}
 
-	public List<Exam> listExams() {
-		String sql = "SELECT * FROM exam";
-		List<Exam> exams = jdbcTemplate.query(sql, new ExamMapper()); 
+	public List<ExamView> listExams(boolean reported) {
+		if (!reported)
+		{	
+		String sql = "SELECT * FROM exam, reservation, patient, room " +
+				"where examReservationId = r_Id and examPatientId = patientId " +
+				"AND examRoomId = roomId AND examReport IS NULL";
+		
+		List<ExamView> exams = jdbcTemplate.query(sql, new ExamViewMapper()); 
 		return exams;
+		}
+		else
+		{
+			String sql = "SELECT * FROM exam, reservation, patient, room " +
+				"where examReservationId = r_Id and examPatientId = patientId " +
+				"AND examRoomId = roomId AND examReport IS NOT NULL and reservationPatientStatus = 4";
+			
+			List<ExamView> exams = jdbcTemplate.query(sql, new ExamViewMapper()); 
+			return exams;
+		}
 	}
 
 	
@@ -80,6 +96,14 @@ public class ExamDaoImpl implements ExamDao{
 		String sql = "UPDATE exam set examEndTime= ?, ExamPatientComplaint= ? where examReservationId = ?";
 		 
 		int numRows =  jdbcTemplate.update(sql, new Object[] {examEndTime, ExamPatientComplaint,examReservationId});
+		 return numRows;
+	}
+	
+	public int updateExamReport(Integer examId, String ExamReport){
+		
+		String sql = "UPDATE exam set ExamReport= ? where examId = ?";
+		 
+		int numRows =  jdbcTemplate.update(sql, new Object[] {ExamReport,examId});
 		 return numRows;
 	}
 	
